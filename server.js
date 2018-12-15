@@ -15,6 +15,7 @@ res.send('Express is running');
 });
 
 app.get('/api/supplier/', db.getAllsuppliers);
+app.get('/api/supplier/CountCounty', db.getCountCounty);
 
 
 var port = process.env.PORT || 8080;

@@ -14,9 +14,24 @@ function getAllsuppliers(req, res) {
         })
         .catch(function (error) {
             console.log('ERROR:', error)
+        })  
+}
+function getCountCounty(req, res) {
+    db.any('SELECT COUNT(country),country FROM Suppliers  Group by country;')
+        .then(function (data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Count ALL country'
+                });
+        })
+        .catch(function (error) {
+            console.log('ERROR:', error)
         })
 }
 
 module.exports = {
-    getAllsuppliers
+    getAllsuppliers,
+    getCountCounty
 };
